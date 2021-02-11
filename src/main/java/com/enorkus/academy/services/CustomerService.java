@@ -5,7 +5,6 @@ import com.enorkus.academy.repository.MemoryCustomerRepository;
 import com.enorkus.academy.validators.CustomerValidator;
 import org.springframework.web.bind.annotation.*;
 
-import javax.xml.bind.ValidationException;
 import java.util.List;
 
 public class CustomerService {
@@ -21,7 +20,7 @@ public class CustomerService {
         return memoryCustomerRepository.findAll();
     }
 
-    public void insertCustomer(@RequestBody Customer customer)  {
+    public void insertCustomer(@RequestBody Customer customer) {
         customerValidator.validateCustomer(customer);
         Customer correctedCustomer = correctNaming(customer);
         memoryCustomerRepository.insert(correctedCustomer);

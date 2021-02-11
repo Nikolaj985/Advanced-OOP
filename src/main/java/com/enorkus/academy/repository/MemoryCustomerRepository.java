@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-public class MemoryCustomerRepository implements CustomerRepository{
+public class MemoryCustomerRepository implements CustomerRepository {
 
     static final List<Customer> customers = new ArrayList<>();
 

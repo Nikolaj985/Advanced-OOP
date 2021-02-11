@@ -4,13 +4,14 @@ import com.enorkus.academy.coutrycode.CountryCode;
 import com.enorkus.academy.exception.ValidationException;
 import org.springframework.util.StringUtils;
 
-public class CountryCodeValidator extends Validator<String>{
+public class CountryCodeValidator extends Validator<String> {
     @Override
-    public void validate(String atribute, String message)  {
+    public void validate(String atribute, String message) {
         if (!checkCountryCode(atribute)) {
             throw new ValidationException(message);
         }
     }
+
     private boolean checkCountryCode(String countryCode) {
         if (StringUtils.isEmpty(countryCode)) {
             return true;
