@@ -36,7 +36,7 @@ public class CustomerService {
         String personalNumberWithDash = dashInPersonalNumber(customer.getPersonalNumber());
         Customer correctedCustumer = new Customer.CustomerBuilder(nameFirstUp, surnameFirstUp, personalNumberWithDash).
                 middleName(customer.getMiddleName()).age(customer.getAge()).city(customer.getCity()).
-                countryCode(customer.getCountryCode()).monthlyIncome(customer.getMonthlyIncome()).employer(customer.getEmployer()).
+                countryCode(customer.getCountryCode().toUpperCase()).monthlyIncome(customer.getMonthlyIncome()).employer(customer.getEmployer()).
                 gender(customer.getGender()).maritalStatus(customer.getMaritalStatus()).build();
         return correctedCustumer;
     }

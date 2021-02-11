@@ -17,7 +17,7 @@ public class CountryCodeValidator extends Validator<String> {
             return true;
         }
         for (CountryCode c : CountryCode.values()) {
-            if (c.name().equals(countryCode)) {
+            if (c.name().equals(countryCode.toUpperCase())) {
                 return true;
             }
         }
