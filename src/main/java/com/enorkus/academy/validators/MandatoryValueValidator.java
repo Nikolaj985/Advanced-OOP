@@ -8,7 +8,7 @@ import javax.xml.bind.ValidationException;
 public class MandatoryValueValidator extends Validator<String> {
 
     @Override
-    public void validate(String atribute, String message) {
+    public void validate(String atribute, String message) throws ValidationException {
         if (StringUtils.isEmpty(atribute.trim())) {
             throw new ValidationException(message);
         }

@@ -8,7 +8,7 @@ import javax.xml.bind.ValidationException;
 
 public class CountryCodeValidator extends Validator<String>{
     @Override
-    public void validate(String atribute, String message)  {
+    public void validate(String atribute, String message) throws ValidationException {
         if (!checkCountryCode(atribute)) {
             throw new ValidationException(message);
         }

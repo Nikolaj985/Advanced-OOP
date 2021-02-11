@@ -6,6 +6,7 @@ import com.enorkus.academy.repository.MemoryCustomerRepository;
 import com.enorkus.academy.services.CustomerService;
 import org.springframework.web.bind.annotation.*;
 
+import javax.xml.bind.ValidationException;
 import java.util.List;
 
 @RestController
@@ -24,7 +25,7 @@ public class MainController {
     }
 
     @PostMapping("/customer/insert")
-    public void insertCustomer(@RequestBody Customer customer) {
+    public void insertCustomer(@RequestBody Customer customer) throws ValidationException {
         customerService.insertCustomer(customer);
     }
 

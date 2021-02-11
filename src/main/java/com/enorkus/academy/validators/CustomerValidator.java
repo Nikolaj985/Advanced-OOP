@@ -13,7 +13,7 @@ public class CustomerValidator {
 
 
 
-    public void validateCustomer(Customer customer)  {
+    public void validateCustomer(Customer customer) throws ValidationException {
         MandatoryValueValidator mandatoryValueValidator = new MandatoryValueValidator();
         mandatoryValueValidator.validate(customer.getFirstName(),"First name is mandatory!");
         mandatoryValueValidator.validate(customer.getLastName(), "Last name is mandatory!");
