@@ -25,7 +25,7 @@ public class MainController {
     }
 
     @PostMapping("/customer/insert")
-    public void insertCustomer(@RequestBody Customer customer) throws ValidationException {
+    public void insertCustomer(@RequestBody Customer customer){
         customerService.insertCustomer(customer);
     }
 

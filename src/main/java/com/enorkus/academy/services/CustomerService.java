@@ -21,7 +21,7 @@ public class CustomerService {
         return memoryCustomerRepository.findAll();
     }
 
-    public void insertCustomer(@RequestBody Customer customer) throws ValidationException {
+    public void insertCustomer(@RequestBody Customer customer)  {
         customerValidator.validateCustomer(customer);
         Customer correctedCustomer = correctNaming(customer);
         memoryCustomerRepository.insert(correctedCustomer);

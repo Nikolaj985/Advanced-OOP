@@ -1,14 +1,12 @@
 package com.enorkus.academy.validators;
 
 import com.enorkus.academy.coutrycode.CountryCode;
-import com.enorkus.academy.exception.InvalidCountryCodeException;
+import com.enorkus.academy.exception.ValidationException;
 import org.springframework.util.StringUtils;
-
-import javax.xml.bind.ValidationException;
 
 public class CountryCodeValidator extends Validator<String>{
     @Override
-    public void validate(String atribute, String message) throws ValidationException {
+    public void validate(String atribute, String message)  {
         if (!checkCountryCode(atribute)) {
             throw new ValidationException(message);
         }
