@@ -7,8 +7,6 @@ import java.util.List;
 
 public interface CustomerRepository {
 
-    static final List<Customer> customers = new ArrayList<>();
-
     public List<Customer> findAll();
 
     public void insert(Customer customer);
