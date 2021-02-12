@@ -6,16 +6,15 @@ import org.springframework.util.StringUtils;
 
 public class CountryCodeValidator extends Validator<String> {
     @Override
-    public void validate(String atribute, String message) {
-        if (!checkCountryCode(atribute)) {
+    public void validate(String attribute, String message) {
+        if (!StringUtils.isEmpty(attribute)) {
+            throw new ValidationException(message);
+        }
+        if (!isCountryCodeValid(attribute)) {
             throw new ValidationException(message);
         }
     }
-
-    private boolean checkCountryCode(String countryCode) {
-        if (StringUtils.isEmpty(countryCode)) {
-            return true;
-        }
+    private boolean isCountryCodeValid(String countryCode) {
         for (CountryCode c : CountryCode.values()) {
             if (c.name().equals(countryCode.toUpperCase())) {
                 return true;
