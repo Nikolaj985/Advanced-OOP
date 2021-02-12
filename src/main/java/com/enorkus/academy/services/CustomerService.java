@@ -22,7 +22,7 @@ public class CustomerService {
 
     public void insertCustomer(@RequestBody Customer customer) {
         customerValidator.validateCustomer(customer);
-        Customer correctedCustomer = correctNaming(customer);
+        Customer correctedCustomer = formatUserData(customer);
         memoryCustomerRepository.insert(correctedCustomer);
     }
 
@@ -30,9 +30,9 @@ public class CustomerService {
         memoryCustomerRepository.deleteById(customerId);
     }
 
-    private Customer correctNaming(Customer customer) {
-        String nameFirstUp = firstToUpper(customer.getFirstName());
-        String surnameFirstUp = firstToUpper(customer.getLastName());
+    private Customer formatUserData(Customer customer) {
+        String nameFirstUp = capitalizeFirstLetter(customer.getFirstName());
+        String surnameFirstUp = capitalizeFirstLetter(customer.getLastName());
         String personalNumberWithDash = dashInPersonalNumber(customer.getPersonalNumber());
         Customer correctedCustumer = new Customer.CustomerBuilder(nameFirstUp, surnameFirstUp, personalNumberWithDash).
                 middleName(customer.getMiddleName()).age(customer.getAge()).city(customer.getCity()).
@@ -41,7 +41,7 @@ public class CustomerService {
         return correctedCustumer;
     }
 
-    private String firstToUpper(String text) {
+    private String capitalizeFirstLetter(String text) {
         if (text.equals("") || text.equals(null)) {
             return text;
         }
