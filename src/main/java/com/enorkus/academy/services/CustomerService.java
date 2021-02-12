@@ -42,9 +42,6 @@ public class CustomerService {
     }
 
     private String capitalizeFirstLetter(String text) {
-        if (text.equals("") || text.equals(null)) {
-            return text;
-        }
         String lowerCase = text.toLowerCase();
         return lowerCase.substring(0, 1).toUpperCase() + lowerCase.substring(1);
     }
