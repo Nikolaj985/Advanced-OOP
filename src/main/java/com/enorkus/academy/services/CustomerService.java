@@ -34,11 +34,11 @@ public class CustomerService {
         String nameFirstUp = capitalizeFirstLetter(customer.getFirstName());
         String surnameFirstUp = capitalizeFirstLetter(customer.getLastName());
         String personalNumberWithDash = dashInPersonalNumber(customer.getPersonalNumber());
-        Customer correctedCustumer = new Customer.CustomerBuilder(nameFirstUp, surnameFirstUp, personalNumberWithDash).
+        Customer correctedCustomer = new Customer.CustomerBuilder(nameFirstUp, surnameFirstUp, personalNumberWithDash).
                 middleName(customer.getMiddleName()).age(customer.getAge()).city(customer.getCity()).
                 countryCode(customer.getCountryCode().toUpperCase()).monthlyIncome(customer.getMonthlyIncome()).employer(customer.getEmployer()).
                 gender(customer.getGender()).maritalStatus(customer.getMaritalStatus()).build();
-        return correctedCustumer;
+        return correctedCustomer;
     }
 
     private String capitalizeFirstLetter(String text) {
